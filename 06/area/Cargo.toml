@@ -1,0 +1,7 @@
+[package]
+name = "area"
+version = "0.1.0"
+authors = ["jspspike <jspspike@gmail.com>"]
+
+[dependencies]
+spiral = "0.1"

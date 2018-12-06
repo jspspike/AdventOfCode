@@ -3,7 +3,6 @@ use std::io::prelude::*;
 use std::collections::HashSet;
 
 fn main() {
-	println!("Hello world");
 
 	let mut f = File::open("input.txt").expect("file not found");
 
