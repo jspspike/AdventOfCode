@@ -26,10 +26,14 @@ fn main() {
     let mut points = Vec::new();
     let mut point_num = 0;
 
+    let mut coords = Vec::new();
+
     for line in contents.lines() {
     	let mut vals = line.split(", ");
     	let centerx = vals.next().unwrap().parse::<usize>().unwrap();
-    	let centery = vals.next().unwrap().parse::<usize>().unwrap(); 
+    	let centery = vals.next().unwrap().parse::<usize>().unwrap();
+
+    	coords.push((centerx, centery));
     	
     	let mut manhat_iter = ManhattanIterator::new(centerx as i32, centery as i32, 600);
     	grid[centerx][centery] = Dist {closest: Some(point_num), distance: 0};
@@ -100,5 +104,18 @@ fn main() {
     	println!("{}, ", val);
     }
 
-    
+    let mut size = 0;
+
+    for i in 1..600 {
+    	for j in 1..600 {
+    		let mut dist = 0;
+    		for coord in coords.iter() {
+    			dist += distance(*coord, (i, j));
+    		}
+    		if (dist < 10000) {
+    			size += 1;
+    		}
+    	}
+    }
+    println!("{}", size);
 }
