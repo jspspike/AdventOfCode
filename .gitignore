@@ -1,6 +1,3 @@
-*
-!README.md
-!.gitignore
-!*/*.txt
-!**/*.rs
-!**/*.toml
+**/target/**
+**/Cargo.lock
+**/.gitignore
